@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: config-server-deployment
+  labels: 
+    app: config
+spec:
+  selector:
+    matchLabels:
+       app: config
+      
+  template:
+    metadata:
+      name: config-server-pod
+      labels:
+        app: config
+    spec:
+      containers:
+        - name: config-server
+          image: parvath/config-server:0.0.1
+  replicas: 2
